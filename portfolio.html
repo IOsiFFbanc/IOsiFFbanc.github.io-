@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио кухонь и мебели в Рыбинске | ООО Тихея</title>
+    <meta name="description" content="Портфолио ООО Тихея: примеры установленных кухонь в Рыбинске, мебели для салонов связи, корпусной мебели. Реальные проекты с фото.">
+    <meta name="keywords" content="портфолио кухни Рыбинск, мебель Рыбинск, примеры работ Тихея">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ООО Тихея">
+    <link rel="canonical" href="https://tiheya.ru/portfolio.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #1e1e1e;
+            --section-bg: #ffffff;
+            --section-dark-bg: #f0f0f0;
+            --header-bg: #1e1e1e;
+            --accent: #b78c5a;
+            --card-shadow: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1e1e1e;
+            --text-color: #f9f9f9;
+            --section-bg: #2a2a2a;
+            --section-dark-bg: #333;
+            --header-bg: #111;
+            --accent: #d4a574;
+            --card-shadow: rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 20px auto 0;
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-light {
+            background-color: var(--section-bg);
+        }
+
+        .section-dark {
+            background-color: var(--section-dark-bg);
+        }
+
+        .header {
+            background-color: var(--header-bg);
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+        }
+
+        .logo h1:after {
+            display: none;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            letter-spacing: 1px;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav a:hover {
+            color: var(--accent);
+        }
+
+        .header-contacts {
+            text-align: right;
+        }
+
+        .header-contacts .phone {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .header-contacts .work-time {
+            font-size: 0.8rem;
+            color: #b0b0b0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            color: white;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .footer {
+            background: var(--header-bg);
+            color: #aaa;
+            padding: 40px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        .footer .logo-bottom {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 20px;
+            }
+
+            .logo {
+                order: 1;
+            }
+
+            .nav {
+                order: 3;
+                width: 100%;
+            }
+
+            .nav ul {
+                display: none;
+                flex-direction: column;
+                background: var(--header-bg);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                gap: 15px;
+            }
+
+            .nav ul.show {
+                display: flex;
+            }
+
+            .nav a {
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hamburger {
+                display: block !important;
+                order: 2;
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 10px;
+            }
+
+            .header-contacts {
+                order: 4;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .theme-toggle {
+                order: 5;
+                margin-left: auto;
+            }
+
+            h1 { font-size: 2rem; }
+            .hero {
+                height: 50vh;
+                padding: 40px 20px;
+            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .section h2 { font-size: 2rem; }
+            .container { padding: 0 10px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Animation styles */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scale-in.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Логотип ООО Тихея">
+                <div>
+                    <h1>ТИХЕЯ</h1>
+                    <p>Установка мебели по всей России</p>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+                <ul id="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="portfolio.html">Портфолио</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-contacts">
+                <div class="work-time">Ежедневно с 9:00 до 21:00</div>
+                <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <section class="section section-light animate-on-scroll">
+        <div class="container">
+            <h2 class="animate-on-scroll">Наше портфолио</h2>
+            <div class="portfolio-grid animate-on-scroll">
+                <div class="portfolio-item animate-on-scroll">
+                    <img src="7.jpg" alt="Проект кухни">
+                    <div class="portfolio-overlay">Современная кухня в стиле минимализм</div>
+                </div>
+                <div class="portfolio-item animate-on-scroll">
+                    <img src="8.jpg" alt="Мебель для салона связи">
+                    <div class="portfolio-overlay">Стойки для салона связи</div>
+                </div>
+                <div class="portfolio-item animate-on-scroll">
+                    <img src="9.jpg" alt="Шкаф-купе">
+                    <div class="portfolio-overlay">Шкаф-купе на заказ</div>
+                </div>
+                <div class="portfolio-item animate-on-scroll">
+                    <img src="10.jpg" alt="Офисная мебель">
+                    <div class="portfolio-overlay">Офисные рабочие места</div>
+                </div>
+                <div class="portfolio-item animate-on-scroll">
+                    <img src="11.jpg" alt="Гостиная">
+                    <div class="portfolio-overlay">Корпусная мебель для гостиной</div>
+                </div>
+                <div class="portfolio-item animate-on-scroll">
+                    <img src="12.jpg" alt="Спальня">
+                    <div class="portfolio-overlay">Мебель для спальни</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo-bottom">ТИХЕЯ</div>
+                    <p>Установка мебели по всей России</p>
+                </div>
+                <div>
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="services.html">Установка кухонь</a></li>
+                        <li><a href="services.html">Мебель для салонов связи</a></li>
+                        <li><a href="services.html">Корпусная мебель</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="about.html">О нас</a></li>
+                        <li><a href="portfolio.html">Портфолио</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Контакты</h4>
+                    <p>+7 (495) 123-45-67</p>
+                    <p>info@tiheya.ru</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 ООО "Тихея". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.dataset.theme = body.dataset.theme === 'dark' ? '' : 'dark';
+            themeToggle.innerHTML = body.dataset.theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', body.dataset.theme);
+        });
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.dataset.theme = savedTheme;
+            themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            hamburger.innerHTML = navMenu.classList.contains('show') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking on a link
+        navMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navMenu.classList.remove('show');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
