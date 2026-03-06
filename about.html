@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании ООО Тихея - Мебель по Всей России</title>
-    <meta name="description" content="ООО Тихея - лидер по установке мебели ПО ВЕСАЙ РОССИИ. Кухни, мебель для салонов связи, ні нов, корпусная мебель. Опыт более 14 лет.">
-    <meta name="keywords" content="о компании, ООО Тихея, насколько, установка мебели по всей России, отзывы, ярославская область">
+    <title>О компании - ООО Тихея</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -278,15 +276,17 @@
 
         @media (max-width: 768px) {
             .header {
-                display: none;
+                padding: 10px 0;
+            }
+
+            .header .container {
+                flex-direction: column;
+                gap: 8px;
+                padding: 8px 20px;
             }
 
             .logo {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                color: #fff;
-                text-decoration: none;
+                order: 1;
             }
 
             .logo img {
@@ -295,225 +295,89 @@
 
             .logo h1 {
                 font-size: 1.3rem;
-                margin: 0;
-                display: block;
             }
 
             .logo p {
                 font-size: 0.65rem;
-                margin: 0;
-                display: none;
             }
 
-            .header-contacts {
-                display: none;
+            .header-contacts .work-time {
+                font-size: 0.7rem;
             }
 
             .nav {
+                order: 3;
                 width: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(30,30,30,0.95));
-                z-index: 999;
-                transform: translateX(-100%);
-                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                backdrop-filter: blur(8px);
-                padding-bottom: 100px;
-            }
-
-            .nav.show {
-                transform: translateX(0);
             }
 
             .nav ul {
+                display: none;
                 flex-direction: column;
-                background: transparent;
-                position: static;
+                background: var(--header-bg);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
                 padding: 20px;
-                gap: 16px;
-                align-items: center;
-                opacity: 0;
-                transform: translateY(30px);
-                transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                gap: 15px;
             }
 
-            .nav.show ul {
-                opacity: 1;
-                transform: translateY(0);
+            .nav ul.show {
+                display: flex;
             }
 
             .nav a {
-                padding: 16px 35px;
-                border-bottom: none;
-                font-size: 1.3rem;
-                font-weight: 500;
-                color: #fff;
-                background: rgba(183, 140, 90, 0.15);
-                border-radius: 12px;
-                width: 220px;
-                text-align: center;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 0;
-                transform: translateY(15px);
-                border: 2px solid rgba(183, 140, 90, 0.3);
-            }
-
-            .nav.show a:nth-child(1) { transition-delay: 0.15s; }
-            .nav.show a:nth-child(2) { transition-delay: 0.2s; }
-            .nav.show a:nth-child(3) { transition-delay: 0.25s; }
-            .nav.show a:nth-child(4) { transition-delay: 0.3s; }
-            .nav.show a:nth-child(5) { transition-delay: 0.35s; }
-            .nav.show a:nth-child(6) { transition-delay: 0.4s; }
-
-            .nav.show a {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .nav a:hover,
-            .nav a:active {
-                background: var(--accent);
-                border-color: var(--accent);
-                transform: scale(1.05);
-                box-shadow: 0 8px 20px rgba(183, 140, 90, 0.3);
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
             .hamburger {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                position: fixed;
-                bottom: 25px;
-                right: 25px;
-                width: 65px;
-                height: 65px;
-                background: linear-gradient(135deg, var(--accent), #a67c4a);
+                display: block !important;
+                order: 2;
+                background: none;
                 border: none;
-                border-radius: 50%;
                 color: #fff;
-                font-size: 1.6rem;
+                font-size: 1.5rem;
                 cursor: pointer;
-                z-index: 1000;
-                box-shadow: 0 6px 25px rgba(183, 140, 90, 0.5);
-                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-                order: unset;
+                padding: 10px;
             }
 
-            .hamburger:active {
-                transform: scale(0.92);
-                box-shadow: 0 3px 15px rgba(183, 140, 90, 0.4);
-            }
-
-            .hamburger.active {
-                transform: rotate(90deg) scale(0.95);
-                background: linear-gradient(135deg, #d9534f, #c9423f);
-                box-shadow: 0 6px 25px rgba(217, 83, 79, 0.5);
+            .header-contacts {
+                order: 4;
+                text-align: center;
+                margin-top: 10px;
             }
 
             .theme-toggle {
-                order: unset;
-                margin-left: unset;
-                display: none;
-            }
-
-            /* Улучшенные мобильные анимации */
-            .animate-on-scroll {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .animate-on-scroll.animate {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .fade-in-left {
-                opacity: 0;
-                transform: translateX(-20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .fade-in-left.animate {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .fade-in-right {
-                opacity: 0;
-                transform: translateX(20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .fade-in-right.animate {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .scale-in {
-                opacity: 0;
-                transform: scale(0.95);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .scale-in.animate {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            .slide-in-bottom {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .slide-in-bottom.animate {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            /* Touch-friendly кнопки */
-            .btn {
-                min-height: 48px;
-                padding: 14px 28px;
-                font-size: 1rem;
-                touch-action: manipulation;
-            }
-
-            .service-card:hover {
-                transform: none;
-            }
-
-            .service-card:active {
-                transform: scale(0.98);
-            }
-
-            .portfolio-item:hover img {
-                transform: none;
-            }
-
-            .portfolio-item:active img {
-                transform: scale(1.02);
+                order: 5;
+                margin-left: auto;
             }
 
             h1 { font-size: 2rem; }
+            .hero {
+                height: 50vh;
+                padding: 40px 20px;
+            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
 
             .container {
                 padding: 0 15px;
             }
 
             .section {
-                padding: 50px 0;
+                padding: 60px 0;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
             }
 
             .footer-grid {
@@ -522,224 +386,19 @@
                 text-align: center;
             }
 
-            body {
-                padding-bottom: 100px;
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.8rem; }
             .hero p { font-size: 1rem; }
-            .section h2 { font-size: 1.8rem; }
-            .container { padding: 0 12px; }
-
-            /* Супер-адаптивные мобильные анимации */
-            .animate-on-scroll {
-                opacity: 0;
-                transform: translateY(15px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
-            }
-
-            .animate-on-scroll.animate {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .service-card {
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-
-            .service-card:active {
-                transform: scale(0.97);
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            }
-
-            .portfolio-item {
-                transition: transform 0.2s ease;
-            }
-
-            .portfolio-item:active {
-                transform: scale(0.97);
-            }
-
-            .btn {
-                transition: all 0.2s ease;
-                padding: 12px 20px;
-                font-size: 0.95rem;
-            }
-
-            .btn:active {
-                transform: scale(0.95);
-            }
-
-            .hamburger {
-                width: 60px;
-                height: 60px;
-                font-size: 1.4rem;
-                bottom: 20px;
-                right: 20px;
-                box-shadow: 0 4px 20px rgba(183, 140, 90, 0.4);
-            }
-
-            .theme-toggle {
-                display: none !important;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-item {
-                padding: 15px;
-            }
-
-            .nav a {
-                width: 200px;
-                padding: 14px 25px;
-                font-size: 1.1rem;
-            }
-
-            body {
-                padding-bottom: 90px;
-            }
-        }
-
-            .portfolio-item {
-                transition: transform 0.2s ease;
-            }
-
-            .portfolio-item:active {
-                transform: scale(0.98);
-            }
-
-            .btn {
-                transition: all 0.2s ease;
-            }
-
-            .btn:active {
-                transform: scale(0.95);
-            }
-        }
-
-        /* Cookie Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--section-bg);
-            border-top: 1px solid var(--card-shadow);
-            padding: 20px;
-            z-index: 999;
-            display: none;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .cookie-banner.show {
-            display: block;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .cookie-text {
-            flex: 1;
-            color: var(--text-color);
-        }
-
-        .cookie-text p {
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-            flex-shrink: 0;
-        }
-
-        .cookie-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .cookie-accept {
-            background-color: var(--accent);
-            color: #fff;
-        }
-
-        .cookie-accept:hover {
-            background-color: #a67c4a;
-        }
-
-        .cookie-reject {
-            background-color: var(--section-dark-bg);
-            color: var(--text-color);
-            border: 1px solid var(--text-color);
-        }
-
-        .cookie-reject:hover {
-            background-color: var(--text-color);
-            color: var(--section-bg);
-        }
-
-        @media (max-width: 768px) {
-            .cookie-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .cookie-buttons {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .cookie-btn {
-                width: 100%;
-                padding: 12px 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cookie-banner {
-                padding: 15px;
-            }
-
-            .cookie-text p {
-                font-size: 0.9rem;
-            }
+            .section h2 { font-size: 2rem; }
+            .container { padding: 0 10px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
         }
 
         /* Animation styles */
@@ -822,7 +481,7 @@
                 <div class="about-content">
                     <h2 class="animate-on-scroll" style="text-align: left; margin-bottom: 0.5rem;">ООО "Тихея"</h2>
                     <h2 class="animate-on-scroll" style="text-align: left; font-size: 1.5rem; margin-bottom: 1.5rem;">Ваш надежный партнер по мебели</h2>
-                    <p class="animate-on-scroll"><strong>Мы работаем ПО ВЕСЕЙ РОССИИ с <span class="years">2010 <span>года</span></span></strong> и реализовали сотни проектов: от Калининграда до Владивостока. Специализируемся на установке кухонь, мебели для салонов связи и офисов. Собственное производство позволяет нам контролировать качество на всех этапах и предлагать лучшие цены.</p>
+                    <p class="animate-on-scroll">Мы работаем с <span class="years">2010 <span>года</span></span> и реализовали сотни проектов по всей России: от Калининграда до Владивостока. Специализируемся на установке кухонь, мебели для салонов связи и офисов. Собственное производство позволяет нам контролировать качество на всех этапах и предлагать лучшие цены.</p>
                     <div class="about-stats animate-on-scroll">
                         <div class="stat-item animate-on-scroll">
                             <i class="fas fa-users"></i>
@@ -946,12 +605,6 @@
             const cookieBanner = document.getElementById('cookie-banner');
             const cookieAccept = document.getElementById('cookie-accept');
             const cookieReject = document.getElementById('cookie-reject');
-
-            // Function to show cookie banner
-            window.showCookieBanner = () => {
-                localStorage.removeItem('cookieChoice');
-                cookieBanner.classList.add('show');
-            };
 
             // Check if user has already made a choice
             const cookieChoice = localStorage.getItem('cookieChoice');
