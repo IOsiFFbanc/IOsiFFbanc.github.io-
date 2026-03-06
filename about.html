@@ -599,6 +599,41 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
+
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookie-banner');
+        const cookieAccept = document.getElementById('cookie-accept');
+        const cookieReject = document.getElementById('cookie-reject');
+
+        // Check if user has already made a choice
+        const cookieChoice = localStorage.getItem('cookieChoice');
+        if (!cookieChoice) {
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
+
+        cookieAccept.addEventListener('click', () => {
+            localStorage.setItem('cookieChoice', 'accepted');
+            cookieBanner.classList.remove('show');
+        });
+
+        cookieReject.addEventListener('click', () => {
+            localStorage.setItem('cookieChoice', 'rejected');
+            cookieBanner.classList.remove('show');
+        });
     </script>
+
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><strong>Мы используем cookies</strong> для улучшения вашего опыта. Cookies помогают нам запомнить ваши предпочтения, включая тему оформления, и собирать анализ посещаемости для улучшения сайта.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="cookie-accept">Принять</button>
+                <button class="cookie-btn cookie-reject" id="cookie-reject">Отклонить</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
