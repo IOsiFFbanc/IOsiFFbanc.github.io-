@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отзывы клиентов о мебели по всей России | ООО Тихея</title>
-    <meta name="description" content="Отзывы клиентов ООО Тихея об установке кухонь и мебели ПО ВСЕЙ РОССИИ. Отзывы нас клиентов из разных регионов о качестве работ и сервисе.">
-    <meta name="keywords" content="отзывы клиентов Россия, отзывы кухни Рыбинск, реальные отзывы, Ѕтия Тихея">
+    <title>Отзывы клиентов | ООО Тихея - кухни и мебель по всей России</title>
+    <meta name="description" content="Отзывы клиентов ООО Тихея об установке кухонь и мебели по всей России. Реальные отзывы о качестве работы и сервисе.">
+    <meta name="keywords" content="отзывы клиентов, кухни, мебель, работы по России, отзывы о качестве"> 
     <meta name="robots" content="index, follow">
     <meta name="author" content="ООО Тихея">
     <link rel="canonical" href="https://tiheya.ru/reviews.html">
@@ -371,65 +371,28 @@
             .nav {
                 order: 3;
                 width: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                background: rgba(0,0,0,0.9);
-                z-index: 999;
-                transform: translateX(-100%);
-                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                backdrop-filter: blur(5px);
-            }
-
-            .nav.show {
-                transform: translateX(0);
             }
 
             .nav ul {
+                display: none;
                 flex-direction: column;
-                background: transparent;
-                position: static;
+                background: var(--header-bg);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
                 padding: 20px;
-                gap: 20px;
-                align-items: center;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                gap: 15px;
             }
 
-            .nav.show ul {
-                opacity: 1;
-                transform: translateY(0);
+            .nav ul.show {
+                display: flex;
             }
 
             .nav a {
-                padding: 15px 30px;
-                border-bottom: none;
-                font-size: 1.2rem;
-                color: #fff;
-                background: rgba(255,255,255,0.1);
-                border-radius: 10px;
-                width: 200px;
-                text-align: center;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            .nav.show a:nth-child(1) { transition-delay: 0.1s; }
-            .nav.show a:nth-child(2) { transition-delay: 0.15s; }
-            .nav.show a:nth-child(3) { transition-delay: 0.2s; }
-            .nav.show a:nth-child(4) { transition-delay: 0.25s; }
-            .nav.show a:nth-child(5) { transition-delay: 0.3s; }
-            .nav.show a:nth-child(6) { transition-delay: 0.35s; }
-
-            .nav.show a {
-                opacity: 1;
-                transform: translateY(0);
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
             }
 
             .hamburger {
@@ -441,103 +404,12 @@
                 font-size: 1.5rem;
                 cursor: pointer;
                 padding: 10px;
-                z-index: 1000;
-                position: relative;
-                transition: transform 0.3s ease;
-            }
-
-            .hamburger.active {
-                transform: rotate(90deg);
             }
 
             .header-contacts {
                 order: 4;
                 text-align: center;
                 margin-top: 10px;
-            }
-
-            .theme-toggle {
-                order: 5;
-                margin-left: auto;
-            }
-
-            /* Мобильные анимации */
-            .animate-on-scroll {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-
-            .animate-on-scroll.animate {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .fade-in-left {
-                opacity: 0;
-                transform: translateX(-20px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-
-            .fade-in-left.animate {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .fade-in-right {
-                opacity: 0;
-                transform: translateX(20px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-
-            .fade-in-right.animate {
-                opacity: 1;
-                transform: translateX(0);
-            }
-
-            .scale-in {
-                opacity: 0;
-                transform: scale(0.95);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-
-            .scale-in.animate {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            .slide-in-bottom {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-
-            .slide-in-bottom.animate {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            /* Touch-friendly кнопки */
-            .btn {
-                min-height: 44px;
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-
-            .service-card:hover {
-                transform: none;
-            }
-
-            .service-card:active {
-                transform: scale(0.98);
-            }
-
-            .portfolio-item:hover img {
-                transform: none;
-            }
-
-            .portfolio-item:active img {
-                transform: scale(1.02);
             }
 
             .theme-toggle {
@@ -617,8 +489,8 @@
 
     <section class="hero animate-on-scroll">
         <div class="container">
-            <h1 class="animate-on-scroll">Отзывы клиентов со всей России</h1>
-            <p class="animate-on-scroll"><strong>Работаем по всей России.</strong> Отзывы клиентов из Москвы, Санкт-Петербурга, Рыбинска, Ярославля и других регионов о нашем качестве</p>
+            <h1 class="animate-on-scroll">Отзывы наших клиентов</h1>
+            <p class="animate-on-scroll">Узнайте, что говорят о нас наши клиенты со всей России</p>
         </div>
     </section>
 
@@ -637,9 +509,9 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Заказывали кухню в Рыбинске. Ребята из Тихеи сделали все на высшем уровне! Замер, дизайн, установка - все четко по графику. Кухня выглядит потрясающе, материалы качественные. Рекомендую всем!"</p>
+                    <p class="review-text">"u041eтличные мастера! Заказывали кухню. Ребята из Тихеи сделали все на высшем уровне! Замер, дизайн, установка - все четко по графику. Кухня выглядит потрясающе, материалы качественные. Рекомендую всем!"
                     <div class="review-author">Анна Петрова</div>
-                    <div class="review-date">Рыбинск, 15 ноября 2024</div>
+                    <div class="review-date">15 ноября 2024</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
@@ -655,7 +527,7 @@
                     </div>
                     <p class="review-text">"Устанавливали мебель для салона связи в Ярославле. Профессиональный подход, все оборудование разместили эргономично. Сроки соблюдены, качество монтажа отличное. Будем обращаться еще!"</p>
                     <div class="review-author">Михаил Сидоров</div>
-                    <div class="review-date">Ярославль, 22 октября 2024</div>
+                    <div class="review-date">Ярославь, 22 октября 2024</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
@@ -671,7 +543,7 @@
                     </div>
                     <p class="review-text">"Делали шкаф-купе на заказ. От идеи до реализации - все под контролем. Материалы хорошие, фурнитура надежная. Цена адекватная. Спасибо команде Тихеи!"</p>
                     <div class="review-author">Елена Козлова</div>
-                    <div class="review-date">Рыбинск, 5 сентября 2024</div>
+                    <div class="review-date">5 сентября 2024</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
@@ -701,9 +573,9 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Устанавливали кухню в частном доме под Рыбинском. Учитывали все пожелания, даже нестандартные размеры. Результат превзошел ожидания. Спасибо за профессионализм!"</p>
+                    <p class="review-text">"u0423станавливали кухню в частном доме. Учитывали все пожелания, даже нестандартные размеры. Результат превзошел ожидания. Спасибо за профессионализм!"
                     <div class="review-author">Ольга Смирнова</div>
-                    <div class="review-date">Рыбинский район, 30 июля 2024</div>
+                    <div class="review-date">30 июля 2024</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
@@ -719,7 +591,7 @@
                     </div>
                     <p class="review-text">"Работали с Тихеей по установке мебели для магазина. Все оборудование разместили компактно и удобно. Монтаж провели аккуратно, без повреждений. Сервис на уровне!"</p>
                     <div class="review-author">Александр Волков</div>
-                    <div class="review-date">Рыбинск, 12 июня 2024</div>
+                    <div class="review-date">12 июня 2024</div>
                 </div>
             </div>
         </div>
@@ -780,40 +652,17 @@
         // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
-        const nav = document.querySelector('.nav');
-        const body = document.body;
 
         hamburger.addEventListener('click', () => {
-            const isOpen = nav.classList.contains('show');
-            nav.classList.toggle('show');
-            hamburger.classList.toggle('active');
-            hamburger.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-            
-            // Prevent body scroll when menu is open
-            if (nav.classList.contains('show')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = '';
-            }
+            navMenu.classList.toggle('show');
+            hamburger.innerHTML = navMenu.classList.contains('show') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
         // Close menu when clicking on a link
         navMenu.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
-                nav.classList.remove('show');
-                hamburger.classList.remove('active');
+                navMenu.classList.remove('show');
                 hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                body.style.overflow = '';
-            }
-        });
-
-        // Close menu when clicking outside
-        nav.addEventListener('click', (e) => {
-            if (e.target === nav) {
-                nav.classList.remove('show');
-                hamburger.classList.remove('active');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                body.style.overflow = '';
             }
         });
 
