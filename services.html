@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Услуги по установке кухонь в Рыбинске | ООО Тихея</title>
-    <meta name="description" content="Услуги ООО Тихея: установка кухонь в Рыбинске, мебель для салонов связи, корпусная мебель на заказ. Профессиональный монтаж, гарантия качества.">
-    <meta name="keywords" content="услуги кухни Рыбинск, установка кухонь Рыбинск, мебель салонов связи Рыбинск, корпусная мебель Рыбинск">
+    <title>Услуги по установке кухонь по Всей России | ООО Тихея</title>
+    <meta name="description" content="ООО Тихея - услуги установке кухонь ПО ВСЕЙ РОССИИ, мебель для салонов связи, корпусная мебель. Профессиональный монтаж и найвысшее качество работ.">
+    <meta name="keywords" content="услуги установки кухонь по России, услуги кухни Рыбинск, установка кухонь Рыбинск, мебель салонов связи, корпусная мебель">
     <meta name="robots" content="index, follow">
     <meta name="author" content="ООО Тихея">
     <link rel="canonical" href="https://tiheya.ru/services.html">
@@ -334,28 +334,65 @@
             .nav {
                 order: 3;
                 width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                background: rgba(0,0,0,0.9);
+                z-index: 999;
+                transform: translateX(-100%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                backdrop-filter: blur(5px);
+            }
+
+            .nav.show {
+                transform: translateX(0);
             }
 
             .nav ul {
-                display: none;
                 flex-direction: column;
-                background: var(--header-bg);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
+                background: transparent;
+                position: static;
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-                gap: 15px;
+                gap: 20px;
+                align-items: center;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
             }
 
-            .nav ul.show {
-                display: flex;
+            .nav.show ul {
+                opacity: 1;
+                transform: translateY(0);
             }
 
             .nav a {
-                padding: 10px 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                padding: 15px 30px;
+                border-bottom: none;
+                font-size: 1.2rem;
+                color: #fff;
+                background: rgba(255,255,255,0.1);
+                border-radius: 10px;
+                width: 200px;
+                text-align: center;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            .nav.show a:nth-child(1) { transition-delay: 0.1s; }
+            .nav.show a:nth-child(2) { transition-delay: 0.15s; }
+            .nav.show a:nth-child(3) { transition-delay: 0.2s; }
+            .nav.show a:nth-child(4) { transition-delay: 0.25s; }
+            .nav.show a:nth-child(5) { transition-delay: 0.3s; }
+            .nav.show a:nth-child(6) { transition-delay: 0.35s; }
+
+            .nav.show a {
+                opacity: 1;
+                transform: translateY(0);
             }
 
             .hamburger {
@@ -367,6 +404,13 @@
                 font-size: 1.5rem;
                 cursor: pointer;
                 padding: 10px;
+                z-index: 1000;
+                position: relative;
+                transition: transform 0.3s ease;
+            }
+
+            .hamburger.active {
+                transform: rotate(90deg);
             }
 
             .header-contacts {
@@ -378,6 +422,85 @@
             .theme-toggle {
                 order: 5;
                 margin-left: auto;
+            }
+
+            /* Мобильные анимации */
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .animate-on-scroll.animate {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .fade-in-left {
+                opacity: 0;
+                transform: translateX(-20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .fade-in-left.animate {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .fade-in-right {
+                opacity: 0;
+                transform: translateX(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .fade-in-right.animate {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .scale-in {
+                opacity: 0;
+                transform: scale(0.95);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .scale-in.animate {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .slide-in-bottom {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .slide-in-bottom.animate {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Touch-friendly кнопки */
+            .btn {
+                min-height: 44px;
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .service-card:hover {
+                transform: none;
+            }
+
+            .service-card:active {
+                transform: scale(0.98);
+            }
+
+            .portfolio-item:hover img {
+                transform: none;
+            }
+
+            .portfolio-item:active img {
+                transform: scale(1.02);
             }
 
             h1 { font-size: 2rem; }
@@ -497,12 +620,13 @@
     <section class="section section-light animate-on-scroll">
         <div class="container">
             <h2 class="animate-on-scroll">Наши услуги</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-color);"><strong>Мы работаем по ВСЕЙ РОССИИ</strong> - предоставляем услуги в любых регионах и городах. Доставка, монтаж и гарантия везде, где вы находитесь.</p>
             <div class="services-grid animate-on-scroll">
                 <div class="service-card animate-on-scroll">
                     <div class="service-img" style="background-image: url('1.jpg');"></div>
                     <div class="service-content">
                         <h3>Установка кухонь</h3>
-                        <p>Под ключ: от замера до монтажа. Любые материалы и стили. Гарантия качества и соблюдение сроков.</p>
+                        <p>Под ключ: от замера до монтажа. Любые материалы и стили. Исполняем без выездов по всей России. Гарантия качества и соблюдение сроков.</p>
                         <a href="contacts.html" class="service-link">Заказать <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -606,17 +730,40 @@
         // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
+        const nav = document.querySelector('.nav');
+        const body = document.body;
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            hamburger.innerHTML = navMenu.classList.contains('show') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            const isOpen = nav.classList.contains('show');
+            nav.classList.toggle('show');
+            hamburger.classList.toggle('active');
+            hamburger.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+            
+            // Prevent body scroll when menu is open
+            if (nav.classList.contains('show')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
         });
 
         // Close menu when clicking on a link
         navMenu.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
-                navMenu.classList.remove('show');
+                nav.classList.remove('show');
+                hamburger.classList.remove('active');
                 hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking outside
+        nav.addEventListener('click', (e) => {
+            if (e.target === nav) {
+                nav.classList.remove('show');
+                hamburger.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = '';
             }
         });
 
