@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отзывы клиентов | ООО Тихея - кухни и мебель в Рыбинске</title>
-    <meta name="description" content="Отзывы клиентов ООО Тихея об установке кухонь и мебели в Рыбинске. Реальные отзывы о качестве работы и сервисе.">
-    <meta name="keywords" content="отзывы кухни Рыбинск, отзывы мебель Рыбинск, Тихея отзывы">
+    <title>Отзывы клиентов | ООО Тихея</title>
+    <meta name="description" content="Отзывы клиентов об услугах ООО Тихея. Реальные мнения людей опроектах по установке кухонь и мебели.">
+    <meta name="keywords" content="отзывы ООО Тихея, отзывы о мебели, отзывы клиентов установка кухонь">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="ООО Тихея">
     <link rel="canonical" href="https://tiheya.ru/reviews.html">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         :root {
             --bg-color: #f9f9f9;
@@ -58,47 +60,93 @@
             padding: 0 20px;
         }
 
+        h1, h2 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+        }
+
+        h1 { font-size: 2.8rem; }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 20px auto 0;
+        }
+
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-light {
+            background-color: var(--section-bg);
+        }
+
         /* Header */
         .header {
             background-color: var(--header-bg);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: #fff;
+            gap: 15px;
             text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
         }
 
         .logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            height: 50px;
+            width: auto;
         }
 
         .logo h1 {
-            font-size: 1.5rem;
-            margin: 0;
+            font-size: 1.8rem;
+            margin-bottom: 0;
+        }
+
+        .logo h1:after {
+            display: none;
+        }
+
+        .logo p {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            letter-spacing: 1px;
         }
 
         .nav ul {
             display: flex;
             list-style: none;
             gap: 30px;
-            margin: 0;
         }
 
         .nav a {
@@ -106,179 +154,115 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 1rem;
         }
 
         .nav a:hover {
             color: var(--accent);
         }
 
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 10px;
+        .header-contacts {
+            text-align: right;
         }
 
-        .hamburger {
-            display: none;
+        .header-contacts .work-time {
+            font-size: 0.8rem;
+            color: #b0b0b0;
+        }
+
+        .theme-toggle {
             background: none;
             border: none;
             color: #fff;
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 10px;
+            margin-left: 20px;
         }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg') center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            margin-top: 80px;
+        .hamburger {
+            display: none;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-
-        .btn:hover {
-            background-color: #a67c4a;
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 0;
-            background-color: var(--section-bg);
-        }
-
-        .section-dark {
-            background-color: var(--section-dark-bg);
-        }
-
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-color);
-        }
-
-        /* Reviews */
+        /* Reviews Grid */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
 
         .review-card {
-            background-color: var(--section-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px var(--card-shadow);
-            text-align: center;
+            background: var(--section-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--card-shadow);
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            padding: 25px;
         }
 
         .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px var(--card-shadow);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--card-shadow);
         }
 
-        .review-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background-color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 2rem;
-        }
-
-        .review-rating {
-            color: #ffd700;
-            margin-bottom: 15px;
+        .stars {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         .review-text {
+            margin-bottom: 15px;
             font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            color: #666;
         }
 
         .review-author {
             font-weight: 600;
-            color: var(--accent);
-        }
-
-        .review-date {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
+            color: var(--text-color);
         }
 
         /* Footer */
         .footer {
-            background-color: var(--header-bg);
-            color: #fff;
+            background: var(--header-bg);
+            color: #aaa;
             padding: 40px 0 20px;
+            font-size: 0.9rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer h4 {
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        .footer ul {
-            list-style: none;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .footer a {
             color: #ccc;
             text-decoration: none;
-            transition: color 0.3s;
         }
 
         .footer a:hover {
             color: var(--accent);
         }
 
-        .logo-bottom {
-            font-size: 1.5rem;
+        .footer .logo-bottom {
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .footer h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 8px;
         }
 
         .copyright {
@@ -287,7 +271,7 @@
             border-top: 1px solid #333;
         }
 
-        /* Animation styles */
+        /* Animations */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -299,147 +283,120 @@
             transform: translateY(0);
         }
 
-        .fade-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in-left.animate {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .fade-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in-right.animate {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .scale-in.animate {
-            opacity: 1;
-            transform: scale(1);
-        }
-
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .header {
-                padding: 10px 0;
-            }
-
-            .header .container {
-                flex-direction: column;
-                gap: 8px;
-                padding: 8px 20px;
-            }
-
-            .logo {
-                order: 1;
-            }
-
-            .logo img {
-                height: 35px;
-            }
-
-            .logo h1 {
-                font-size: 1.3rem;
-            }
-
-            .logo p {
-                font-size: 0.65rem;
-            }
-
-            .header-contacts {
-                flex-direction: column;
-                gap: 0;
-            }
-
-            .header-contacts .work-time {
-                font-size: 0.7rem;
+                display: none;
             }
 
             .nav {
-                order: 3;
                 width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(30,30,30,0.95));
+                z-index: 999;
+                transform: translateX(-100%);
+                transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                backdrop-filter: blur(8px);
+                padding-bottom: 100px;
+            }
+
+            .nav.show {
+                transform: translateX(0);
             }
 
             .nav ul {
-                display: none;
                 flex-direction: column;
-                background: var(--header-bg);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-                gap: 15px;
+                gap: 16px;
+                align-items: center;
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
             }
 
-            .nav ul.show {
-                display: flex;
+            .nav.show ul {
+                opacity: 1;
+                transform: translateY(0);
             }
 
             .nav a {
-                padding: 10px 0;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                padding: 16px 35px;
+                font-size: 1.3rem;
+                font-weight: 500;
+                color: #fff;
+                background: rgba(183, 140, 90, 0.15);
+                border-radius: 12px;
+                width: 220px;
+                text-align: center;
+                opacity: 0;
+                transform: translateY(15px);
+                border: 2px solid rgba(183, 140, 90, 0.3);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .nav.show a {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav a:hover,
+            .nav a:active {
+                background: var(--accent);
+                border-color: var(--accent);
+                transform: scale(1.05);
+                box-shadow: 0 8px 20px rgba(183, 140, 90, 0.3);
             }
 
             .hamburger {
-                display: block !important;
-                order: 2;
-                background: none;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                bottom: 25px;
+                right: 25px;
+                width: 65px;
+                height: 65px;
+                background: linear-gradient(135deg, var(--accent), #a67c4a);
                 border: none;
+                border-radius: 50%;
                 color: #fff;
-                font-size: 1.5rem;
+                font-size: 1.6rem;
                 cursor: pointer;
-                padding: 10px;
+                z-index: 1000;
+                box-shadow: 0 6px 25px rgba(183, 140, 90, 0.5);
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
 
-            .header-contacts {
-                order: 4;
-                text-align: center;
-                margin-top: 10px;
+            .hamburger:active {
+                transform: scale(0.92);
+            }
+
+            .hamburger.active {
+                transform: rotate(90deg) scale(0.95);
+                background: linear-gradient(135deg, #d9534f, #c9423f);
             }
 
             .theme-toggle {
-                order: 5;
-                margin-left: auto;
+                display: none;
             }
 
             h1 { font-size: 2rem; }
-            .hero {
-                height: 50vh;
-                padding: 40px 20px;
-            }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
 
             .container {
                 padding: 0 15px;
             }
 
             .section {
-                padding: 60px 0;
+                padding: 50px 0;
             }
 
             .reviews-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .review-card {
-                padding: 20px;
             }
 
             .footer-grid {
@@ -448,18 +405,149 @@
                 text-align: center;
             }
 
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
+            body {
+                padding-bottom: 100px;
+            }
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--section-bg);
+            border-top: 1px solid var(--card-shadow);
+            padding: 20px;
+            z-index: 999;
+            display: none;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cookie-banner.show {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cookie-text {
+            flex: 1;
+            color: var(--text-color);
+        }
+
+        .cookie-text p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .cookie-accept {
+            background-color: var(--accent);
+            color: #fff;
+        }
+
+        .cookie-accept:hover {
+            background-color: #a67c4a;
+        }
+
+        .cookie-reject {
+            background-color: var(--section-dark-bg);
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+        }
+
+        .cookie-reject:hover {
+            background-color: var(--text-color);
+            color: var(--section-bg);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+                padding: 12px 15px;
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            .section h2 { font-size: 2rem; }
-            .container { padding: 0 10px; }
-            .reviews-grid { grid-template-columns: 1fr; }
+            .cookie-banner {
+                padding: 15px;
+            }
+
+            .cookie-text p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section h2 { font-size: 1.8rem; }
+            .container { padding: 0 12px; }
+
+            .hamburger {
+                width: 60px;
+                height: 60px;
+                font-size: 1.4rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .nav a {
+                width: 200px;
+                padding: 14px 25px;
+                font-size: 1.1rem;
+            }
+
+            body {
+                padding-bottom: 90px;
+            }
         }
     </style>
 </head>
@@ -467,9 +555,10 @@
     <header class="header">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="logo.jpg" alt="Логотип ООО Тихея">
+                <img src="logo.jpg" alt="Логотип ТИХЕЯ">
                 <div>
                     <h1>ТИХЕЯ</h1>
+                    <p>Установка мебели по всей России</p>
                 </div>
             </a>
             <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
@@ -478,120 +567,93 @@
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="services.html">Услуги</a></li>
                     <li><a href="portfolio.html">Портфолио</a></li>
-                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="about.html">О компании</a></li>
                     <li><a href="reviews.html">Отзывы</a></li>
                     <li><a href="contacts.html">Контакты</a></li>
                 </ul>
             </nav>
-            <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <div class="header-contacts">
+                <div class="work-time">Ежедневно с 9:00 до 21:00</div>
+                <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button>
+            </div>
         </div>
     </header>
 
-    <section class="hero animate-on-scroll">
-        <div class="container">
-            <h1 class="animate-on-scroll">Отзывы наших клиентов</h1>
-            <p class="animate-on-scroll">Узнайте, что говорят о нас довольные клиенты из Рыбинска и других городов</p>
-        </div>
-    </section>
-
     <section class="section section-light animate-on-scroll">
         <div class="container">
-            <h2 class="animate-on-scroll">Что говорят наши клиенты</h2>
+            <h2 class="animate-on-scroll">Отзывы наших клиентов</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-color);"><strong>Что говорят о нас люди, которые доверили нам установку своей мебели</strong></p>
             <div class="reviews-grid animate-on-scroll">
                 <div class="review-card animate-on-scroll">
-                    <div class="review-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="review-rating">
+                    <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Заказывали кухню в Рыбинске. Ребята из Тихеи сделали все на высшем уровне! Замер, дизайн, установка - все четко по графику. Кухня выглядит потрясающе, материалы качественные. Рекомендую всем!"</p>
-                    <div class="review-author">Анна Петрова</div>
-                    <div class="review-date">Рыбинск, 15 ноября 2024</div>
+                    <p class="review-text">"Спасибо ООО Тихея за отличную работу! Кухня установлена в срок, мастера были вежливы и профессиональны. Очень доволен результатом!"</p>
+                    <div class="review-author">- Сергей М., Москва</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
-                    <div class="review-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="review-rating">
+                    <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Устанавливали мебель для салона связи в Ярославле. Профессиональный подход, все оборудование разместили эргономично. Сроки соблюдены, качество монтажа отличное. Будем обращаться еще!"</p>
-                    <div class="review-author">Михаил Сидоров</div>
-                    <div class="review-date">Ярославль, 22 октября 2024</div>
+                    <p class="review-text">"Заказывал шкаф-купе по всей России из Владивостока. Доставили быстро, установили аккуратно. Рекомендую!"</p>
+                    <div class="review-author">- Елена К., Владивосток</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
-                    <div class="review-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="review-rating">
+                    <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Делали шкаф-купе на заказ. От идеи до реализации - все под контролем. Материалы хорошие, фурнитура надежная. Цена адекватная. Спасибо команде Тихеи!"</p>
-                    <div class="review-author">Елена Козлова</div>
-                    <div class="review-date">Рыбинск, 5 сентября 2024</div>
+                    <p class="review-text">"Установили офисную мебель для нашей компании. Все выполнено точно в срок, без задержек. Спасибо за профессионализм!"</p>
+                    <div class="review-author">- Андрей П., СПб</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
-                    <div class="review-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="review-rating">
+                    <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Заказывали офисную мебель. Все сделали быстро и качественно. Дизайн подобрали современный, функциональный. Коллектив отзывчивый, всегда на связи. Отличная компания!"</p>
-                    <div class="review-author">Дмитрий Иванов</div>
-                    <div class="review-date">Тутаев, 18 августа 2024</div>
+                    <p class="review-text">"Мебель для гостиной из ООО Тихея - это качество, которое видно с первого взгляда. Стойка кассы в салоне связи тоже от них - всё отлично!"</p>
+                    <div class="review-author">- Мария В., Казань</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
-                    <div class="review-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="review-rating">
+                    <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Устанавливали кухню в частном доме под Рыбинском. Учитывали все пожелания, даже нестандартные размеры. Результат превзошел ожидания. Спасибо за профессионализм!"</p>
-                    <div class="review-author">Ольга Смирнова</div>
-                    <div class="review-date">Рыбинский район, 30 июля 2024</div>
+                    <p class="review-text">"Благодарим команду ООО Тихея за установку кухни в нашем офисе. Выполнили со вкусом и профессионально. Работаем с ними уже третий год!"</p>
+                    <div class="review-author">- Роман Х., Рыбинск</div>
                 </div>
 
                 <div class="review-card animate-on-scroll">
-                    <div class="review-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="review-rating">
+                    <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="review-text">"Работали с Тихеей по установке мебели для магазина. Все оборудование разместили компактно и удобно. Монтаж провели аккуратно, без повреждений. Сервис на уровне!"</p>
-                    <div class="review-author">Александр Волков</div>
-                    <div class="review-date">Рыбинск, 12 июня 2024</div>
+                    <p class="review-text">"Заказал мебель на заказ, установили даже в таких сложных условиях. Мастера знают своё дело - это было заметно сразу!"</p>
+                    <div class="review-author">- Павел Л., Ярославль</div>
                 </div>
             </div>
         </div>
@@ -633,6 +695,18 @@
         </div>
     </footer>
 
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><strong>Мы используем cookies</strong> для улучшения вашего опыта. Cookies помогают нам запомнить ваши предпочтения и собирать анализ для улучшения сайта.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="cookie-accept">Принять</button>
+                <button class="cookie-btn cookie-reject" id="cookie-reject">Отклонить</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
@@ -649,24 +723,41 @@
             themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
         }
 
-        // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
+        const nav = document.querySelector('.nav');
 
         hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            hamburger.innerHTML = navMenu.classList.contains('show') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close menu when clicking on a link
-        navMenu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                navMenu.classList.remove('show');
-                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            const isOpen = nav.classList.contains('show');
+            nav.classList.toggle('show');
+            hamburger.classList.toggle('active');
+            hamburger.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+            
+            if (nav.classList.contains('show')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
             }
         });
 
-        // Scroll animations
+        navMenu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                nav.classList.remove('show');
+                hamburger.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = '';
+            }
+        });
+
+        nav.addEventListener('click', (e) => {
+            if (e.target === nav) {
+                nav.classList.remove('show');
+                hamburger.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                body.style.overflow = '';
+            }
+        });
+
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -680,7 +771,6 @@
             });
         }, observerOptions);
 
-        // Observe all elements with animate-on-scroll class
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
@@ -691,7 +781,6 @@
             const cookieAccept = document.getElementById('cookie-accept');
             const cookieReject = document.getElementById('cookie-reject');
 
-            // Check if user has already made a choice
             const cookieChoice = localStorage.getItem('cookieChoice');
             if (!cookieChoice) {
                 setTimeout(() => {
@@ -711,16 +800,9 @@
         });
     </script>
 
-    <div class="cookie-banner" id="cookie-banner">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p><strong>Мы используем cookies</strong> для улучшения вашего опыта. Cookies помогают нам запомнить ваши предпочтения, включая тему оформления, и собирать анализ посещаемости для улучшения сайта.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-accept" id="cookie-accept">Принять</button>
-                <button class="cookie-btn cookie-reject" id="cookie-reject">Отклонить</button>
-            </div>
-        </div>
-    </div>
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cookies.js"></script>
+
 </body>
 </html>
